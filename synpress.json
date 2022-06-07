@@ -1,5 +1,5 @@
 {
-    "baseUrl": "https://dappify.com/",
+    "baseUrl": "https://dev.dappify.com/projects/",
     "userAgent": "synpress",
     "retries": { "runMode": 0, "openMode": 0 },
     "integrationFolder": "tests/e2e/specs",
