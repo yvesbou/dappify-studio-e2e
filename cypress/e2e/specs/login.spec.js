@@ -13,7 +13,7 @@ describe('Test User Login', () => {
         cy.contains('Connect Wallet').click();
         cy.contains('Metamask').click();
         // cy.switchToMetamaskWindow();
-        cy.acceptMetamaskAccess().should("be.true"); // failed
+        cy.acceptMetamaskAccess().should("be.true"); // failed because cy.disconnectFromDappify() failed in prev suite (remaining state)
         cy.confirmMetamaskSignatureRequest();
         // cy.switchToCypressWindow();
         cy.contains('Add Project').should('be.visible');
