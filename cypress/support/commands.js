@@ -1,4 +1,4 @@
-import "@testing-library/cypress/add-commands";
+// import "@testing-library/cypress/add-commands";
 
 // add it here, because custom functions need synpress commands as well
 import "@synthetixio/synpress/support";
@@ -8,9 +8,3 @@ import "@synthetixio/synpress/support";
 Cypress.Commands.add("disconnectFromDappify", () => {
     cy.disconnectMetamaskWalletFromDapp().should("be.true");
   });
-
-Cypress.Commands.add('clickLink', (label) => {
-  cy.get('a').contains(label).click()
-})
-
-console.log('here');

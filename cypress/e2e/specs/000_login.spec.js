@@ -4,6 +4,9 @@ describe('Test User Login', () => {
     // disconnect from application, to have full onboarding for every test
     afterEach(()=> {
         cy.disconnectFromDappify().should("be.true");
+        // wait, otherwise state cleaning not 100% persistent
+        cy.wait(3000);
+        // cy.disconnectMetamaskWalletFromDapp().should("be.true");
     })
 
     it('Connects with Metamask', () => {
@@ -12,10 +15,8 @@ describe('Test User Login', () => {
         cy.contains('Confirm').click();
         cy.contains('Connect Wallet').click();
         cy.contains('Metamask').click();
-        // cy.switchToMetamaskWindow();
         cy.acceptMetamaskAccess().should("be.true"); // failed because cy.disconnectFromDappify() failed in prev suite (remaining state)
-        cy.confirmMetamaskSignatureRequest();
-        // cy.switchToCypressWindow();
+        cy.confirmMetamaskSignatureRequest().should("be.true");
         cy.contains('Add Project').should('be.visible');
 
     })
