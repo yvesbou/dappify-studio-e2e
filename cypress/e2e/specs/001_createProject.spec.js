@@ -2,34 +2,19 @@ describe('Create Project', () => {
     
     // before entire suite "Create Project"
     before(() => {
-        cy.visit('https://dev.dappify.com')
-        cy.contains('Sign').click(); 
-        cy.contains('Confirm').click();
-        cy.contains('Connect Wallet').click();
-        cy.contains('Metamask').click();
-        // accept access
-        cy.acceptMetamaskAccess().should("be.true");
-        // confirm request
-        cy.confirmMetamaskSignatureRequest().should("be.true");
+        cy.visitAndConnectToDappify();
     });
 
     // after this suite "Create Project"
     after(() => {
         // disconnect from site (remove Access) => requires cy.acceptMetamaskAccess() in consecutive visits
-        cy.disconnectFromDappify().should("be.true");
+        cy.disconnectFromDappify();
     });
 
     // delete project which is created with the test case
-    afterEach(()=>{
-        cy.visit('https://dev.dappify.com/projects');
-        cy.contains('Example Project Cy').click();
-        // inside project studio
-        // scroll to place where delete button will be visible
-        cy.get('h2').contains('Review your dApp configuration').scrollIntoView();
-        // get and click this button
-        cy.get('button').contains('Delete this Project').click();
-        // this gets button "Delete Forever" within pop-up and clicks it
-        cy.get('button').contains('Delete Forever').click();
+    afterEach(() => {
+        cy.visitProjects();
+        cy.deleteExampleProject();
     })
 
     it('open new project', () => {
@@ -52,7 +37,7 @@ describe('Create Project', () => {
         // UI shows "Create Project", in html it has "Create project"
         cy.get('a').contains('My projects').click();
         // within the overview check if Example Project is there
-        cy.contains('Example Project Cy').should("exist");
+        cy.contains('Example Project Cy').should('exist');
     })
 
 })

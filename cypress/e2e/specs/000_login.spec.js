@@ -3,9 +3,7 @@ describe('Test User Login', () => {
 
     // disconnect from application, to have full onboarding for every test
     afterEach(()=> {
-        cy.disconnectFromDappify().should("be.true");
-        // wait, otherwise state cleaning not 100% persistent
-        cy.wait(3000);
+        cy.disconnectFromDappify();
     })
 
     it('Connects with Metamask', () => {
