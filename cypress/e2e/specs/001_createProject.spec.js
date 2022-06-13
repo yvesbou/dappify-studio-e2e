@@ -15,7 +15,7 @@ describe('Create Project', () => {
 
     // after this suite "Create Project"
     after(() => {
-        // disconnect from site (remove Access)
+        // disconnect from site (remove Access) => requires cy.acceptMetamaskAccess() in consecutive visits
         cy.disconnectFromDappify().should("be.true");
     });
 
