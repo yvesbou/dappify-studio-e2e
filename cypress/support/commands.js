@@ -6,11 +6,13 @@ import "@synthetixio/synpress/support";
 // add custom functions
 
 Cypress.Commands.add('visitDappify', () => {
-  cy.visit('https://dev.dappify.com');
+  // cy.visit('https://dev.dappify.com');
+  cy.visit('https://dappify.local:3000/');
 })
 
 Cypress.Commands.add('visitProjects', () => {
-  cy.visit('https://dev.dappify.com/projects');
+  // cy.visit('https://dev.dappify.com/projects');
+  cy.visit('https://dappify.local:3000/projects');
 })
 
 Cypress.Commands.add('visitAndConnectToDappify', () => {
@@ -32,7 +34,8 @@ Cypress.Commands.add('disconnectFromDappify', () => {
 });
 
 Cypress.Commands.add('deleteExampleProject', () => {
-  cy.contains('Example Project Cy').click();
+  cy.pause(15000); // wait for cards to arrive (not proper way)
+  cy.get('[data-cy="Example Project Cy Box"]').click();
   // inside project studio
   // scroll to place where delete button will be visible
   cy.get('h2').contains('Review your dApp configuration').scrollIntoView();
