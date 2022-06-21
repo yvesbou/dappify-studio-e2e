@@ -35,7 +35,7 @@ Cypress.Commands.add('disconnectFromDappify', () => {
 
 Cypress.Commands.add('deleteExampleProject', () => {
   cy.pause(15000); // wait for cards to arrive (not proper way)
-  cy.get('[data-cy="Example Project Cy Box"]').click();
+  cy.get('[data-cy=created-dapps-overview]').contains('Example Project Cy').click();
   // inside project studio
   // scroll to place where delete button will be visible
   cy.get('h2').contains('Review your dApp configuration').scrollIntoView();
