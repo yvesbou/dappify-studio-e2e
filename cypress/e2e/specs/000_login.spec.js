@@ -7,7 +7,8 @@ describe('Test User Login', () => {
     })
 
     it('Connects with Metamask', () => {
-        cy.visit('https://dev.dappify.com')
+        // cy.visit('https://dev.dappify.com')
+        cy.visit('https://dappify.local:3000/'); //the library resolves via url, for dappify.local the project exists in the DB
         cy.contains('Sign').click(); 
         // first time arrival of client to console / studio requires pressing confirm button
         cy.contains('Confirm').click();

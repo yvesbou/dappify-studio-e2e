@@ -3,7 +3,10 @@
     "cypress": "^10.0.1"
   },
   "scripts": {
-    "test": "env-cmd -f .env npx synpress run -cf synpress.json --config supportFile='cypress/support/index.js'"
+    "test": "env-cmd -f .env npx synpress run -cf synpress.json --config supportFile='cypress/support/index.js'",
+    "test-000": "env-cmd -f .env npx synpress run --spec cypress/e2e/specs/000_login.spec.js -cf synpress.json --config supportFile='cypress/support/index.js'",
+    "test-001": "env-cmd -f .env npx synpress run --spec cypress/e2e/specs/001_createProject.spec.js -cf synpress.json --config supportFile='cypress/support/index.js'",
+    "test-002": "env-cmd -f .env npx synpress run --spec cypress/e2e/specs/002_configureProject.spec.js -cf synpress.json --config supportFile='cypress/support/index.js'"
   },
   "dependencies": {
     "@synthetixio/synpress": "^1.2.0",
