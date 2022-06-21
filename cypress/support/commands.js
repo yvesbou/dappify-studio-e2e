@@ -1,17 +1,13 @@
-// import "@testing-library/cypress/add-commands";
-
 // add it here, because custom functions need synpress commands as well
 import "@synthetixio/synpress/support";
 
 // add custom functions
 
 Cypress.Commands.add('visitDappify', () => {
-  // cy.visit('https://dev.dappify.com');
   cy.visit('https://dappify.local:3000/');
 })
 
 Cypress.Commands.add('visitProjects', () => {
-  // cy.visit('https://dev.dappify.com/projects');
   cy.visit('https://dappify.local:3000/projects');
 })
 
